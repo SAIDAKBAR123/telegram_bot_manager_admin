@@ -202,6 +202,7 @@ export default {
   },
 
   created () {
+    this.$router.push('/users')
     this.initialize()
   },
 

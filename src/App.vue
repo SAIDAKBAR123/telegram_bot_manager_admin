@@ -20,7 +20,7 @@
             <TransitionGroup name="list" tag="button">
                <v-btn
               v-for="link in links"
-              :key="link"
+              :key="link.title"
               active-class="startLunk"
               :to="link.link"
               text
@@ -29,30 +29,20 @@
             </v-btn>
 
             </TransitionGroup>
-        <v-spacer></v-spacer>
-
-        <v-responsive max-width="260">
-          <v-text-field
-            dense
-            flat
-            hide-details
-            rounded
-            solo-inverted
-          ></v-text-field>
-        </v-responsive>
+        <!-- <v-spacer></v-spacer> -->
       </v-container>
     </v-app-bar>
 
     <v-main class="grey lighten-3">
       <v-container>
         <v-row>
-          <v-col cols="2">
+          <v-col cols="2" v-if="false">
             <v-sheet rounded="lg" >
               <v-list color="transparent">
                 <v-list-item
                   active-class="true"
                   v-for="n in links"
-                  :key="n"
+                  :key="n.title"
                   link
                 >
                   <v-list-item-content>
@@ -100,23 +90,23 @@ export default {
       {
         title: 'Пользователи',
         link: 'users'
-      },
-      {
-        title: 'Обеды',
-        link: 'lunchs'
-      },
-      {
-        title: 'Меню',
-        link: 'menus'
-      },
-      {
-        title: 'Отчеты',
-        link: 'reports'
-      },
-      {
-        title: 'Настройки',
-        link: 'settings'
       }
+      // {
+      //   title: 'Обеды',
+      //   link: 'lunchs'
+      // },
+      // {
+      //   title: 'Меню',
+      //   link: 'menus'
+      // },
+      // {
+      //   title: 'Отчеты',
+      //   link: 'reports'
+      // },
+      // {
+      //   title: 'Настройки',
+      //   link: 'settings'
+      // }
     ]
   }),
   created () {
