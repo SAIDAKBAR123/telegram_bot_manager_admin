@@ -59,14 +59,14 @@
                   <v-col
                     cols="12"
                   >
-                  <v-phone
+                  <!-- <v-phone
                   :preferred-countries="['UZ', 'RU', 'US']"
                   no-example
-                  default-country-code="UZ" v-model="editedItem.phone_number"/>
-                    <!-- <v-text-field
+                  default-country-code="UZ" v-model="editedItem.phone_number"/> -->
+                    <v-text-field
                       v-model="editedItem.phone_number"
                       label="Телефонный номер"
-                    ></v-text-field> -->
+                    ></v-text-field>
                   </v-col>
                   <v-col
                     v-if="!editedItem.id"
@@ -203,7 +203,7 @@ export default {
       active: 'false',
       login: '',
       name: '',
-      password: '',
+      password: 'udevs$22',
       phone_number: '',
       type: 'staff'
     },
@@ -211,7 +211,7 @@ export default {
       active: 'false',
       login: '',
       name: '',
-      password: '',
+      password: 'udevs$22',
       phone_number: '',
       type: 'staff'
     }
