@@ -6,6 +6,8 @@
     :search="search"
     sort-by="calories"
     class="elevation-0"
+    items-per-page="200"
+    page="1"
   >
     <template v-slot:top>
       <v-toolbar
@@ -342,7 +344,7 @@ export default {
         console.log(this.editedItem)
         Users.updateUser({
           ...this.editedItem,
-          phone_number: '+998' + this.editedItem.phone_number
+          phone_number: '+' + this.editedItem.phone_number
         }).then(res => {
           console.log(res)
           this.close()
@@ -352,7 +354,7 @@ export default {
         console.log(this.editedItem)
         Users.postUser({
           ...this.editedItem,
-          phone_number: '+998' + this.editedItem.phone_number
+          phone_number: '+' + this.editedItem.phone_number
         }).then(res => {
           console.log(res)
           this.close()
