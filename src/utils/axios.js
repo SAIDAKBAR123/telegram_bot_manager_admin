@@ -1,7 +1,7 @@
 import axios from 'axios'
 console.log(process.env)
 const request = axios.create({
-  baseURL: process.env.NODE_ENV === 'development' ? process.env.VUE_APP_BASE_TEST_URL : process.env.VUE_APP_BASE_URL,
+  baseURL: process.env.NODE_ENV !== 'development' ? process.env.VUE_APP_BASE_TEST_URL : process.env.VUE_APP_BASE_URL,
   timeout: 12000
 })
 

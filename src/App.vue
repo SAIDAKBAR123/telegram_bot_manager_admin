@@ -13,7 +13,7 @@
           color="grey darken-1"
           size="42"
         >
-          <v-img src="https://media-exp1.licdn.com/dms/image/C4D03AQG-qhCH7f2HuA/profile-displayphoto-shrink_800_800/0/1631712305647?e=1652918400&v=beta&t=lWbjKVBYkHpP9Fdv8bUM6vHTz4M1PV9i_q6EtFUa4Vs"></v-img>
+          <v-img src="https://i.pinimg.com/originals/19/43/ab/1943abd23ffcc3731700e26d8c6ea055.gif"></v-img>
         </v-avatar>
             <span class="text">Kamila <br> Shadimetova</span>
             <v-spacer></v-spacer>
@@ -90,15 +90,15 @@ export default {
       {
         title: 'Пользователи',
         link: 'users'
-      }
+      },
       // {
       //   title: 'Обеды',
       //   link: 'lunchs'
       // },
-      // {
-      //   title: 'Меню',
-      //   link: 'menus'
-      // },
+      {
+        title: 'Меню',
+        link: 'menus'
+      }
       // {
       //   title: 'Отчеты',
       //   link: 'reports'

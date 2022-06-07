@@ -94,10 +94,12 @@
       </v-toolbar>
     </template>
     <template v-slot:item.date="{ item }">
-      <v-chip class="rounded-sm" color="blue lighten-4">{{ item.date }}</v-chip>
+      <v-chip class="rounded-sm" color="blue lighten-4">{{
+        convertToDay(item.date)
+         }}</v-chip>
     </template>
-    <template v-slot:item.lunch_infos="{ item }">
-      <div>{{ item.lunch_infos[0].title.ru }}</div>
+    <template v-slot:item.lunches="{ item }">
+      <div>{{ item.lunches[0] }}</div>
     </template>
     <template v-slot:item.actions="{ item }">
       <v-icon small class="mr-2" @click="editItem(item)"> mdi-pencil </v-icon>
@@ -109,6 +111,8 @@
   </v-data-table>
 </template>
 <script>
+import Menu from '../../services/menu'
+import moment from 'moment'
 export default {
   data: () => ({
     menu: false,
@@ -116,7 +120,7 @@ export default {
     dialogDelete: false,
     headers: [
       { text: 'Date', value: 'date' },
-      { text: 'Food', value: 'lunch_infos' },
+      { text: 'Food', value: 'lunches' },
       { text: 'Actions', value: 'actions', sortable: false }
     ],
     desserts: [],
@@ -151,26 +155,14 @@ export default {
   },
 
   methods: {
-    initialize () {
-      this.desserts = [
-        {
-          id: 'e89b2122-b039-4642-a332-d420d62d21fa',
-          _id: 'e89b2122-b039-4642-a332-d420d62d21fa',
-          date: Date.now(),
-          lunches: ['03040426-10d5-461b-a45a-f930335c063a'],
-          lunch_infos: [
-            {
-              title: {
-                ru: 'Manti',
-                uz: 'Manti',
-                en: 'Manti'
-              },
-              slug: 'manti',
-              image: ''
-            }
-          ]
-        }
-      ]
+    convertToDay (item) {
+      return moment(new Date(item)).format('DD, MMM, YYYY')
+    },
+    async initialize () {
+      console.log(moment().startOf('month').format('YYYY-MM-DDTHH:mm:ss'), moment().endOf('month'))
+      const { data } = await Menu.getMenus({ from_date: moment().startOf('month').format('YYYY-MM-DDTHH:mm:ss'), to_date: moment().endOf('month').format('YYYY-MM-DDTHH:mm:ss') })
+      console.log(data.menus)
+      this.desserts = data.menus
     },
 
     editItem (item) {
