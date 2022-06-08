@@ -137,6 +137,19 @@
     <template v-slot:item.type="{ item }">
       <v-chip class="px-4 rounded-lg" small :color="getTypeColor(item.type)" dark>{{ item.type }}</v-chip>
     </template>
+    <template v-slot:item.active="{ item }">
+          <v-chip
+            class="ma-2"
+            small
+            :color="item.active ? 'teal' : 'error'"
+            text-color="white"
+          >
+            <v-avatar left size="12">
+              <v-icon size="20">mdi-checkbox-marked-circle</v-icon>
+            </v-avatar>
+            {{ item.active ? 'Active' : 'Not active' }}
+          </v-chip>
+    </template>
     <template v-slot:item.actions="{ item }">
       <v-icon
         small
@@ -197,6 +210,7 @@ export default {
       { text: 'Имя пользователя', value: 'login' },
       { text: 'Телефон', value: 'phone_number' },
       { text: 'Роль', value: 'type' },
+      { text: 'Статус профиля', value: 'active' },
       { text: 'Действия', value: 'actions', sortable: false }
     ],
     desserts: [],
